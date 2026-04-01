@@ -141,8 +141,8 @@ export default function MobileControls() {
         <div
           style={btnStyle}
           onPointerDown={(e) => { (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId); setControl('interact', true); }}
-          onPointerUp={(e) => { (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId); setControl('interact', false); }}
-          onPointerCancel={() => setControl('interact', false)}
+          onPointerUp={(e) => { (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId); setTimeout(() => setControl('interact', false), 100); }}
+          onPointerCancel={() => setTimeout(() => setControl('interact', false), 100)}
         >
           <Hand size={30} />
         </div>
@@ -154,8 +154,8 @@ export default function MobileControls() {
             top: '-80px', right: '10px'
           }}
           onPointerDown={(e) => { (e.currentTarget as HTMLElement).setPointerCapture(e.pointerId); setControl('jump', true); }}
-          onPointerUp={(e) => { (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId); setControl('jump', false); }}
-          onPointerCancel={() => setControl('jump', false)}
+          onPointerUp={(e) => { (e.currentTarget as HTMLElement).releasePointerCapture(e.pointerId); setTimeout(() => setControl('jump', false), 100); }}
+          onPointerCancel={() => setTimeout(() => setControl('jump', false), 100)}
         >
           <ArrowUpCircle size={36} />
         </div>

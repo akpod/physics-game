@@ -87,38 +87,35 @@ export default function Player({ position = [0, 2, 0] }: { position?: [number, n
         if (!grabbedBodyRef.current) {
             const pos = bodyRef.current.translation();
             const dir = { x: Math.sin(currentRotation.current), y: 0, z: Math.cos(currentRotation.current) };
-            const rayStart = { x: pos.x + dir.x * 1.0, y: pos.y + 1.0, z: pos.z + dir.z * 1.0 };
+            
+            // Lower the ray to waist level (pos.y) instead of head level (pos.y + 1.0)
+            const rayStart = { x: pos.x + dir.x * 0.9, y: pos.y, z: pos.z + dir.z * 0.9 };
             
             const ray = new rapier.Ray(rayStart, dir);
             const hit = world.castRay(ray, 3.0, true);
             
             if (hit && hit.collider) {
                 const parent = hit.collider.parent();
-                const isDynamic = parent && parent.bodyType() === rapier.RigidBodyType.Dynamic;
-                const isPickable = parent && parent.userData && (parent.userData as Record<string, any>).pickable;
-                
-                if (isDynamic || isPickable) {
-                    grabbedBodyRef.current = parent;
-                    parent.setBodyType(rapier.RigidBodyType.KinematicPositionBased, true);
+                if (parent) {
+                    const isDynamic = parent.bodyType() === rapier.RigidBodyType.Dynamic;
+                    const isPickable = parent.userData && (parent.userData as Record<string, any>).pickable;
+                    
+                    if (isDynamic || isPickable) {
+                        grabbedBodyRef.current = parent;
+                        parent.setBodyType(rapier.RigidBodyType.KinematicPositionBased, true);
+                    }
                 }
             }
         } else {
-            // Drop - place the object cleanly onto the ground
+            // Drop - let gravity handle it from hand position
             const pos = bodyRef.current.translation();
             const handPos = {
                 x: pos.x + Math.sin(currentRotation.current) * 1.5,
                 y: pos.y + 1.2,
                 z: pos.z + Math.cos(currentRotation.current) * 1.5
             };
-            const dropRay = new rapier.Ray(handPos, { x: 0, y: -1, z: 0 });
-            const dropHit = world.castRay(dropRay, 5.0, true);
             
-            if (dropHit && dropHit.collider) {
-                // Drop hit - place object right above hit surface. We assume object radius/height ~ 0.5.
-                const toi = (dropHit as any).toi || (dropHit as any).timeOfImpact || 1.0;
-                grabbedBodyRef.current.setTranslation({ x: handPos.x, y: handPos.y - toi + 0.5, z: handPos.z }, true);
-            }
-            
+            grabbedBodyRef.current.setTranslation({ x: handPos.x, y: handPos.y, z: handPos.z }, true);
             grabbedBodyRef.current.setBodyType(rapier.RigidBodyType.Dynamic, true);
             grabbedBodyRef.current = null;
         }
