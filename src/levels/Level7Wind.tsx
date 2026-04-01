@@ -1,4 +1,4 @@
-import { Box, Text, Cylinder } from '@react-three/drei';
+import { Box, Text } from '@react-three/drei';
 import { RigidBody } from '@react-three/rapier';
 import Player from '../components/Player';
 
@@ -22,8 +22,7 @@ export default function Level7Wind() {
       {/* Pit with explicit Trampoline */}
       <RigidBody 
         type="fixed" 
-        colliders="hull"
-        position={[0, -5, -15]} 
+        position={[0, -2, -15]} 
         restitution={2.0} 
         restitutionCombineRule={3 as any}
         onCollisionEnter={(e) => {
@@ -34,7 +33,7 @@ export default function Level7Wind() {
           }
         }}
       >
-        <Cylinder args={[6, 6, 1, 32]} material-color="#111" />
+        <Box args={[12, 1, 12]} material-color="#111" />
         <Text position={[0, 0.6, 0]} rotation={[-Math.PI / 2, 0, 0]} color="white" fontSize={1}>TRAMPOLINE</Text>
       </RigidBody>
 
