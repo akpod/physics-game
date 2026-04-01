@@ -44,7 +44,7 @@ const saveScores = (scores: any) => {
 };
 
 const loadUnlocked = () => {
-  if (typeof window !== 'undefined' && window.location.pathname === '/fullaccess') {
+  if (typeof window !== 'undefined' && (window.location.search.includes('unlockAll') || window.location.pathname === '/fullaccess')) {
      const allLevels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
      localStorage.setItem('physics_game_unlocked', JSON.stringify(allLevels));
      return allLevels;
