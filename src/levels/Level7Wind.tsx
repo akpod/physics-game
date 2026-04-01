@@ -30,11 +30,11 @@ export default function Level7Wind() {
           if (e.other.rigidBody) {
              const currentVel = e.other.rigidBody.linvel();
              // Override vertical velocity to guarantee a high bounce, ignoring downward momentum
-             e.other.rigidBody.setLinvel({ x: currentVel.x, y: 25, z: currentVel.z }, true);
+             e.other.rigidBody.setLinvel({ x: currentVel.x, y: 35, z: currentVel.z }, true);
           }
         }}
       >
-        <Cylinder args={[6, 6, 1, 32]} material-color="#1E90FF" />
+        <Cylinder args={[6, 6, 1, 32]} material-color="#111" />
         <Text position={[0, 0.6, 0]} rotation={[-Math.PI / 2, 0, 0]} color="white" fontSize={1}>TRAMPOLINE</Text>
       </RigidBody>
 

@@ -5,8 +5,8 @@ import type { LevelType } from '../App';
 interface Props {
   currentLevel: LevelType;
   setCurrentLevel: React.Dispatch<React.SetStateAction<LevelType>>;
-  isSlowMo: boolean;
-  setIsSlowMo: React.Dispatch<React.SetStateAction<boolean>>;
+  isPaused: boolean;
+  setIsPaused: React.Dispatch<React.SetStateAction<boolean>>;
   showHint: boolean;
   setShowHint: React.Dispatch<React.SetStateAction<boolean>>;
 }
@@ -15,7 +15,7 @@ import { audioManager } from '../audio/AudioManager';
 import { useGameStore } from '../store/gameStore';
 import { getTranslation } from '../i18n';
 
-export default function UIOverlay({ currentLevel, setCurrentLevel, isSlowMo, setIsSlowMo, showHint, setShowHint }: Props) {
+export default function UIOverlay({ currentLevel, setCurrentLevel, isPaused, setIsPaused, showHint, setShowHint }: Props) {
   const { finishLevelPhase1, language } = useGameStore();
 
   const titleKey = currentLevel === 'sandbox' ? 'sandboxMode' : `level${currentLevel}Title`;
@@ -30,8 +30,8 @@ export default function UIOverlay({ currentLevel, setCurrentLevel, isSlowMo, set
   return (
     <div className="ui-overlay">
       <div className="hud-top-right">
-        <button className="btn" style={{ padding: '8px' }} onClick={() => { playClick(); setIsSlowMo(!isSlowMo); }}>
-          {isSlowMo ? <Play size={24} /> : <Pause size={24} />}
+        <button className="btn" style={{ padding: '8px' }} onClick={() => { playClick(); setIsPaused(!isPaused); }}>
+          {isPaused ? <Play size={24} /> : <Pause size={24} />}
         </button>
         <button className="btn" style={{ padding: '8px' }} onClick={() => { playClick(); setShowHint(!showHint); }}>
           <HelpCircle size={24} />

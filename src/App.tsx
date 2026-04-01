@@ -42,7 +42,7 @@ const TimerTicker = () => {
 
 function App() {
   const [currentLevel, setCurrentLevel] = useState<LevelType>(1);
-  const [isSlowMo, setIsSlowMo] = useState(false);
+  const [isPaused, setIsPaused] = useState(false);
   const [showHint, setShowHint] = useState(false);
 
   const { currentScreen, startTimer, resetTimer } = useGameStore();
@@ -99,7 +99,7 @@ function App() {
               <TimerTicker />
 
               {/* Rapier Physics World */}
-              <Physics timeStep={isSlowMo ? "vary" : undefined} updatePriority={isSlowMo ? -1 : 0} gravity={[0, -9.81, 0]}>
+              <Physics paused={isPaused} gravity={[0, -9.81, 0]}>
                  <PhysicsWorld />
                  {renderLevel()}
               </Physics>
@@ -110,8 +110,8 @@ function App() {
             <UIOverlay 
               currentLevel={currentLevel} 
               setCurrentLevel={setCurrentLevel} 
-              isSlowMo={isSlowMo} 
-              setIsSlowMo={setIsSlowMo}
+              isPaused={isPaused} 
+              setIsPaused={setIsPaused}
               showHint={showHint}
               setShowHint={setShowHint}
             />
