@@ -1,9 +1,9 @@
 import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
 import { Box, Text } from '@react-three/drei';
-import { RigidBody, CuboidCollider } from '@react-three/rapier';
+import { RigidBody } from '@react-three/rapier';
 import Player from '../components/Player';
-import { useGameStore } from '../store/gameStore';
+
 
 export default function Level6Kinematics() {
   const platform1Ref = useRef<any>(null);

@@ -1,8 +1,8 @@
 import { Box, Sphere } from '@react-three/drei';
-import { RigidBody, CuboidCollider } from '@react-three/rapier';
+import { RigidBody } from '@react-three/rapier';
 import { useState, useRef } from 'react';
 import Player from '../components/Player';
-import { useGameStore } from '../store/gameStore';
+
 
 export default function Level4Projectile() {
   const ballRef = useRef<any>(null);

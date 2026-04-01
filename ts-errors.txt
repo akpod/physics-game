@@ -1,0 +1,13 @@
+src/levels/Level10Gauntlet.tsx(4,21): error TS6133: 'CuboidCollider' is declared but its value is never read.
+src/levels/Level10Gauntlet.tsx(6,1): error TS6133: 'useGameStore' is declared but its value is never read.
+src/levels/Level4Projectile.tsx(2,21): error TS6133: 'CuboidCollider' is declared but its value is never read.
+src/levels/Level4Projectile.tsx(5,1): error TS6133: 'useGameStore' is declared but its value is never read.
+src/levels/Level5Friction.tsx(2,21): error TS6133: 'CuboidCollider' is declared but its value is never read.
+src/levels/Level5Friction.tsx(4,1): error TS6133: 'useGameStore' is declared but its value is never read.
+src/levels/Level6Kinematics.tsx(4,21): error TS6133: 'CuboidCollider' is declared but its value is never read.
+src/levels/Level6Kinematics.tsx(6,1): error TS6133: 'useGameStore' is declared but its value is never read.
+src/levels/Level8Puzzles.tsx(2,21): error TS6133: 'CuboidCollider' is declared but its value is never read.
+src/levels/Level8Puzzles.tsx(4,1): error TS6133: 'useGameStore' is declared but its value is never read.
+src/levels/Level9Pendulum.tsx(4,21): error TS6133: 'CuboidCollider' is declared but its value is never read.
+src/levels/Level9Pendulum.tsx(6,1): error TS6133: 'useGameStore' is declared but its value is never read.
+src/store/gameStore.ts(145,33): error TS6133: 'state' is declared but its value is never read.

@@ -142,7 +142,7 @@ export const useGameStore = create<GameState>((set, get) => ({
   }),
 
   // Phase 1: Click Finish Button -> Show score screen
-  finishLevelPhase1: () => set((state) => {
+  finishLevelPhase1: () => set(() => {
     return { currentScreen: 'levelComplete', levelGoalReached: false, timerActive: false };
   }),
 
