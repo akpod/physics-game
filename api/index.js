@@ -2,19 +2,18 @@ import express from 'express';
 import cors from 'cors';
 import fs from 'fs';
 import path from 'path';
-import { fileURLToPath } from 'url';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = path.dirname(__filename);
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-const DB_FILE = path.join(__dirname, 'leaderboard.json');
+// If Vercel env, use /tmp, else use project root directory
+const isVercel = process.env.VERCEL === '1' || process.env.VERCEL;
+const DB_FILE = isVercel ? '/tmp/leaderboard.json' : path.join(process.cwd(), 'leaderboard.json');
 
 // Initialize DB
 if (!fs.existsSync(DB_FILE)) {
+    // Write empty array if not exists
     fs.writeFileSync(DB_FILE, JSON.stringify([]));
 }
 
@@ -34,7 +33,6 @@ app.post('/api/leaderboard', (req, res) => {
         
         const existingIndex = data.findIndex(d => d.name === newEntry.name);
         if (existingIndex > -1) {
-           // We only update if the new total time is better, or if stars are higher
            const cur = data[existingIndex];
            if (newEntry.stars > cur.stars || (newEntry.stars === cur.stars && newEntry.time < cur.time)) {
                data[existingIndex] = newEntry;
@@ -50,7 +48,14 @@ app.post('/api/leaderboard', (req, res) => {
     }
 });
 
-const PORT = 3001;
-app.listen(PORT, () => {
-    console.log(`Leaderboard API running on http://localhost:${PORT}`);
-});
+// For Vercel, it requires the module to be exported
+export default app;
+
+// For local development, listen on the port
+// If process.env.VERCEL is not set, we assume local or a different Node runner
+if (!isVercel) {
+    const PORT = process.env.PORT || 3001;
+    app.listen(PORT, () => {
+        console.log(`Leaderboard API running on http://localhost:${PORT}`);
+    });
+}
