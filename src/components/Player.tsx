@@ -4,6 +4,7 @@ import { RigidBody, CapsuleCollider, useRapier } from '@react-three/rapier';
 import { useRef } from 'react';
 import * as THREE from 'three';
 import { useGameStore } from '../store/gameStore';
+import { useMobileControls } from '../store/mobileControlsStore';
 
 export default function Player({ position = [0, 2, 0] }: { position?: [number, number, number] }) {
   const bodyRef = useRef<any>(null);
@@ -38,7 +39,18 @@ export default function Player({ position = [0, 2, 0] }: { position?: [number, n
     if (!bodyRef.current || !visualRef.current) return;
     
     // 1. Handle Movement Input (Velocity-based)
-    const { forward, backward, left, right, jump, run, interact, wave, point } = get() as any;
+    const keyboardInput = get() as any;
+    const mobileInput = useMobileControls.getState();
+    
+    const forward = keyboardInput.forward || mobileInput.forward;
+    const backward = keyboardInput.backward || mobileInput.backward;
+    const left = keyboardInput.left || mobileInput.left;
+    const right = keyboardInput.right || mobileInput.right;
+    const jump = keyboardInput.jump || mobileInput.jump;
+    const run = keyboardInput.run || mobileInput.run;
+    const interact = keyboardInput.interact || mobileInput.interact;
+    const wave = keyboardInput.wave;
+    const point = keyboardInput.point;
     
     // Base speed and sprint multiplier
     const speed = run ? 12.0 : 6.0; 

@@ -5,6 +5,7 @@ import { Sky } from '@react-three/drei';
 
 import PhysicsWorld from './components/PhysicsWorld';
 import UIOverlay from './components/UIOverlay';
+import MobileControls from './components/MobileControls';
 import MainMenu from './components/MainMenu';
 import LevelSelect from './components/LevelSelect';
 import GameScoreUI from './components/GameScoreUI';
@@ -115,6 +116,7 @@ function App() {
               setShowHint={setShowHint}
             />
           )}
+          {currentScreen === 'playing' && <MobileControls />}
         </>
       )}
     </div>
