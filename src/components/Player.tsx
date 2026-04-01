@@ -1,6 +1,6 @@
 import { useFrame } from '@react-three/fiber';
 import { useKeyboardControls, Box, Sphere, Capsule } from '@react-three/drei';
-import { RigidBody, CapsuleCollider, useRapier } from '@react-three/rapier';
+import { RigidBody, CapsuleCollider, CuboidCollider, useRapier } from '@react-three/rapier';
 import { useRef } from 'react';
 import * as THREE from 'three';
 import { useGameStore } from '../store/gameStore';
@@ -26,9 +26,11 @@ export default function Player({ position = [0, 2, 0] }: { position?: [number, n
   const currentRotation = useRef(0);
 
   // New refs for interaction
-  const { rapier, world } = useRapier();
+  const { rapier } = useRapier();
   const grabbedBodyRef = useRef<any>(null);
   const wasInteractPressed = useRef(false);
+  const sensorRef = useRef<any>(null);
+  const nearbyBodies = useRef<any[]>([]);
 
   // We use a larger mannequin size
   const MANNEQUIN_SCALE = 1.2;
@@ -82,47 +84,41 @@ export default function Player({ position = [0, 2, 0] }: { position?: [number, n
         import('../audio/AudioManager').then(m => m.audioManager.playJumpSound());
     }
 
+    // Sensor Update Position
+    if (sensorRef.current) {
+        const pos = bodyRef.current.translation();
+        const sensorPos = {
+            x: pos.x + Math.sin(currentRotation.current) * 1.0,
+            y: pos.y + 0.5,
+            z: pos.z + Math.cos(currentRotation.current) * 1.0
+        };
+        sensorRef.current.setNextKinematicTranslation(sensorPos);
+        sensorRef.current.setNextKinematicRotation(new THREE.Quaternion().setFromEuler(new THREE.Euler(0, currentRotation.current, 0)));
+    }
+
     // 1.5 Handle Interaction (Pick up / Drop)
     if (interact && !wasInteractPressed.current) {
         if (!grabbedBodyRef.current) {
-            const pos = bodyRef.current.translation();
-            const dir = { x: Math.sin(currentRotation.current), y: 0, z: Math.cos(currentRotation.current) };
-            
-            // Lower the ray to waist level (pos.y) instead of head level (pos.y + 1.0)
-            const rayStart = { x: pos.x + dir.x * 0.9, y: pos.y, z: pos.z + dir.z * 0.9 };
-            
-            const ray = new rapier.Ray(rayStart, dir);
-            const hit = world.castRay(ray, 3.0, true);
-            
-            if (hit && hit.collider) {
-                const parent = hit.collider.parent();
-                if (parent) {
-                    const isDynamic = parent.bodyType() === rapier.RigidBodyType.Dynamic;
-                    const isPickable = parent.userData && (parent.userData as Record<string, any>).pickable;
+            // Loop through overlapping nearby bodies via Sensor
+            for (const body of nearbyBodies.current) {
+                if (body && typeof body.bodyType === 'function') {
+                    const isDynamic = body.bodyType() === rapier.RigidBodyType.Dynamic;
+                    const isPickable = body.userData && (body.userData as Record<string, any>).pickable;
                     
                     if (isDynamic || isPickable) {
-                        grabbedBodyRef.current = parent;
-                        parent.setBodyType(rapier.RigidBodyType.KinematicPositionBased, true);
+                        grabbedBodyRef.current = body;
+                        break;
                     }
                 }
             }
         } else {
-            // Drop - let gravity handle it from hand position
-            const pos = bodyRef.current.translation();
-            const handPos = {
-                x: pos.x + Math.sin(currentRotation.current) * 1.5,
-                y: pos.y + 1.2,
-                z: pos.z + Math.cos(currentRotation.current) * 1.5
-            };
-            
-            grabbedBodyRef.current.setTranslation({ x: handPos.x, y: handPos.y, z: handPos.z }, true);
-            grabbedBodyRef.current.setBodyType(rapier.RigidBodyType.Dynamic, true);
+            // Drop object
             grabbedBodyRef.current = null;
         }
     }
     wasInteractPressed.current = interact;
 
-    // Update grabbed object position
+    // Tractor Beam grabbed object
     if (grabbedBodyRef.current) {
         const pos = bodyRef.current.translation();
         const handPos = {
@@ -130,11 +126,16 @@ export default function Player({ position = [0, 2, 0] }: { position?: [number, n
             y: pos.y + 1.2,
             z: pos.z + Math.cos(currentRotation.current) * 1.5
         };
-        grabbedBodyRef.current.setNextKinematicTranslation(handPos);
-        
         const currentEuler = new THREE.Euler(0, currentRotation.current, 0);
         const currentQuat = new THREE.Quaternion().setFromEuler(currentEuler);
-        grabbedBodyRef.current.setNextKinematicRotation(currentQuat);
+        
+        // Force translation and freeze velocity frame-by-frame
+        if (typeof grabbedBodyRef.current.setTranslation === 'function') {
+            grabbedBodyRef.current.setTranslation(handPos, true);
+            grabbedBodyRef.current.setRotation(currentQuat, true);
+            grabbedBodyRef.current.setLinvel({x: 0, y: 0, z: 0}, false);
+            grabbedBodyRef.current.setAngvel({x: 0, y: 0, z: 0}, false);
+        }
     }
 
     // 2. Handle Visual Rotation & Walking Animation
@@ -256,14 +257,33 @@ export default function Player({ position = [0, 2, 0] }: { position?: [number, n
   const shoeColor = "#EF3340"; // Red shoes (Ethiopian flag)
 
   return (
-    <RigidBody 
-      ref={bodyRef} 
-      position={position} 
-      restitution={0.0} 
-      friction={2.0}
-      gravityScale={gravityScale}
-      enabledRotations={[false, false, false]} // Keep upright rigidly
-    >
+    <group>
+      {/* Invisible Pickup Sensor Box */}
+      <RigidBody ref={sensorRef} type="kinematicPosition" colliders={false}>
+          <CuboidCollider 
+              args={[1.0, 1.0, 1.0]} 
+              sensor 
+              onIntersectionEnter={({ other }) => {
+                  if (other.rigidBody && !nearbyBodies.current.includes(other.rigidBody)) {
+                      nearbyBodies.current.push(other.rigidBody);
+                  }
+              }}
+              onIntersectionExit={({ other }) => {
+                  if (other.rigidBody) {
+                      nearbyBodies.current = nearbyBodies.current.filter(b => b !== other.rigidBody);
+                  }
+              }}
+          />
+      </RigidBody>
+      
+      <RigidBody 
+        ref={bodyRef} 
+        position={position} 
+        restitution={0.0} 
+        friction={2.0}
+        gravityScale={gravityScale}
+        enabledRotations={[false, false, false]} // Keep upright rigidly
+      >
       <CapsuleCollider args={[MANNEQUIN_SCALE * 0.7, MANNEQUIN_SCALE * 0.3]} />
       
       {/* Realistic Humanoid Mannequin */}
@@ -346,5 +366,6 @@ export default function Player({ position = [0, 2, 0] }: { position?: [number, n
          </group>
       </group>
     </RigidBody>
+  </group>
   );
 }
