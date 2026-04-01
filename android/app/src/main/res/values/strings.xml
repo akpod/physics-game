@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">physics-game</string>
+    <string name="title_activity_main">physics-game</string>
+    <string name="package_name">com.dani.physicsgame</string>
+    <string name="custom_url_scheme">com.dani.physicsgame</string>
+</resources>

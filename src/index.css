@@ -1,0 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap');
+
+:root {
+  --ethiopia-green: #009A44;
+  --ethiopia-yellow: #FEDD00;
+  --ethiopia-red: #EF3340;
+  --ethiopia-brown: #8D5524;
+  --bg-color: #121212;
+  --text-primary: #FFFFFF;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  user-select: none;
+  font-family: 'Outfit', sans-serif;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+}
+
+.ui-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none; /* Let clicks pass through to canvas by default */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  z-index: 10;
+}
+
+.level-info {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 12px;
+  border-left: 5px solid var(--ethiopia-yellow);
+  max-width: 400px;
+  pointer-events: auto;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+
+.level-info h1 {
+  font-size: 24px;
+  margin-bottom: 8px;
+  color: var(--ethiopia-yellow);
+}
+
+.level-info p {
+  font-size: 16px;
+  line-height: 1.4;
+}
+
+.controls-hint {
+  align-self: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 10px 20px;
+  border-radius: 20px;
+  backdrop-filter: blur(5px);
+  margin-bottom: 20px;
+}
+
+.btn {
+  pointer-events: auto;
+  background: var(--ethiopia-green);
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  background: #00b34f;
+}
+
+.hud-top-right {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  pointer-events: auto;
+  display: flex;
+  gap: 10px;
+}
