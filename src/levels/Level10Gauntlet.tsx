@@ -8,14 +8,15 @@ import Player from '../components/Player';
 export default function Level10Gauntlet() {
   const platformRef = useRef<any>(null);
 
-  useFrame((state) => {
+  useFrame((state, delta) => {
     const time = state.clock.getElapsedTime();
-    if (platformRef.current) {
-        platformRef.current.setNextKinematicTranslation({
-            x: Math.sin(time) * 6,
-            y: 0,
-            z: -18
-        });
+    if (platformRef.current && delta > 0) {
+        const pos = platformRef.current.translation();
+        platformRef.current.setLinvel({
+            x: (Math.sin(time) * 6 - pos.x) / delta,
+            y: (0 - pos.y) / delta,
+            z: (-18 - pos.z) / delta
+        }, true);
     }
   });
 
@@ -40,7 +41,7 @@ export default function Level10Gauntlet() {
       </RigidBody>
 
       {/* Moving Platform */}
-      <RigidBody ref={platformRef} type="kinematicPosition" position={[0, 2, -26]}>
+      <RigidBody ref={platformRef} type="kinematicVelocity" position={[0, 0, -18]} friction={5} frictionCombineRule={3 as any}>
         <Box args={[3, 0.5, 3]} material-color="#009A44" />
       </RigidBody>
 
