@@ -26,7 +26,7 @@ export default function Level10Gauntlet() {
       {/* Start Pad */}
       <RigidBody type="fixed" position={[0, -0.5, 0]}>
         <Box args={[6, 1, 6]} material-color="#8D6238" />
-        <Text position={[0, 0.6, 0]} rotation={[-Math.PI / 2, 0, 0]} color="white" fontSize={0.6}>The Final Exam</Text>
+        <Text depthOffset={-2} position={[0, 0.6, 0]} rotation={[-Math.PI / 2, 0, 0]} color="white" fontSize={0.6}>The Final Exam</Text>
       </RigidBody>
 
       {/* Trampoline gap */}
@@ -56,7 +56,7 @@ export default function Level10Gauntlet() {
       <RigidBody type="fixed" position={[0, 0, -45]}>
 
         <Box args={[8, 1, 8]} material-color="#FEDD00" />
-        <Text position={[0, 0.6, 0]} rotation={[-Math.PI / 2, 0, 0]} color="black" fontSize={1}>VICTORY</Text>
+        <Text depthOffset={-2} position={[0, 0.6, 0]} rotation={[-Math.PI / 2, 0, 0]} color="black" fontSize={1}>VICTORY</Text>
       </RigidBody>
     </group>
   );

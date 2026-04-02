@@ -20,7 +20,7 @@ export default function Level1Motion() {
         <Box args={[4, 0.2, 5]}>
           <meshStandardMaterial color="#EF3340" /> {/* Red Boost Zone */}
         </Box>
-        <Text position={[0, 0.2, 0]} rotation={[-Math.PI / 2, 0, 0]} color="white" fontSize={0.5}>
+        <Text depthOffset={-2} position={[0, 0.2, 0]} rotation={[-Math.PI / 2, 0, 0]} color="white" fontSize={0.5}>
           ICE!
         </Text>
       </RigidBody>

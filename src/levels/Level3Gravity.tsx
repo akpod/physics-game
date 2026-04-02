@@ -17,7 +17,7 @@ export default function Level3Gravity() {
       {/* Normal Gravity Platform */}
       <RigidBody type="fixed" position={[0, -0.5, 2]}>
         <Box args={[4, 1, 4]} material-color="#009A44" />
-        <Text position={[0, 0.6, 0]} rotation={[-Math.PI / 2, 0, 0]} color="white" fontSize={0.5}>Normal G</Text>
+        <Text depthOffset={-2} position={[0, 0.6, 0]} rotation={[-Math.PI / 2, 0, 0]} color="white" fontSize={0.5}>Normal G</Text>
       </RigidBody>
 
       {/* Dynamic Objects in Normal Gravity */}
@@ -38,7 +38,7 @@ export default function Level3Gravity() {
             onIntersectionExit={() => setGravityScale(1.0)} 
         />
         <Box args={[4, 1, 4]} material-color="#EF3340" />
-        <Text position={[0, 0.6, 0]} rotation={[-Math.PI / 2, 0, 0]} color="white" fontSize={0.5}>Space Jump</Text>
+        <Text depthOffset={-2} position={[0, 0.6, 0]} rotation={[-Math.PI / 2, 0, 0]} color="white" fontSize={0.5}>Space Jump</Text>
       </RigidBody>
 
       {/* Dynamic Objects in Space Gravity */}
@@ -52,7 +52,7 @@ export default function Level3Gravity() {
       {/* Bottom catch floor */}
       <RigidBody type="fixed" position={[0, -10, 0]}>
         <Box args={[40, 1, 40]} material-color="black" />
-        <Text position={[0, 1, 0]} rotation={[-Math.PI / 2, 0, 0]} color="white" fontSize={1}>Fell down!</Text>
+        <Text depthOffset={-2} position={[0, 1, 0]} rotation={[-Math.PI / 2, 0, 0]} color="white" fontSize={1}>Fell down!</Text>
       </RigidBody>
     </group>
   );

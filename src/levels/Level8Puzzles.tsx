@@ -12,7 +12,7 @@ export default function Level8Puzzles() {
       {/* Ground */}
       <RigidBody type="fixed" position={[0, -0.5, -5]}>
         <Box args={[20, 1, 20]} material-color="#8D6238" />
-        <Text position={[0, 0.6, 5]} rotation={[-Math.PI / 2, 0, 0]} color="white" fontSize={0.5}>Push the blocks to build stairs</Text>
+        <Text depthOffset={-2} position={[0, 0.6, 5]} rotation={[-Math.PI / 2, 0, 0]} color="white" fontSize={0.5}>Push the blocks to build stairs</Text>
       </RigidBody>
 
       {/* Physics Puzzle Blocks */}
@@ -30,7 +30,7 @@ export default function Level8Puzzles() {
       <RigidBody type="fixed" position={[0, 4, -13]}>
 
         <Box args={[8, 1, 8]} material-color="#009A44" />
-        <Text position={[0, 0.6, 0]} rotation={[-Math.PI / 2, 0, 0]} color="white" fontSize={1}>GOAL (4m HIGH)</Text>
+        <Text depthOffset={-2} position={[0, 0.6, 0]} rotation={[-Math.PI / 2, 0, 0]} color="white" fontSize={1}>GOAL (4m HIGH)</Text>
       </RigidBody>
     </group>
   );

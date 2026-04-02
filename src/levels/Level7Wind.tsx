@@ -16,7 +16,7 @@ export default function Level7Wind() {
       {/* Start */}
       <RigidBody type="fixed" position={[0, -0.5, 0]}>
         <Box args={[10, 1, 10]} material-color="#8D6238" />
-        <Text position={[0, 0.6, -3]} rotation={[-Math.PI / 2, 0, 0]} color="white" fontSize={0.5}>Jump down and cross</Text>
+        <Text depthOffset={-2} position={[0, 0.6, -3]} rotation={[-Math.PI / 2, 0, 0]} color="white" fontSize={0.5}>Jump down and cross</Text>
       </RigidBody>
 
       {/* Pit with explicit Trampoline */}
@@ -34,14 +34,14 @@ export default function Level7Wind() {
         }}
       >
         <Box args={[12, 1, 12]} material-color="#111" />
-        <Text position={[0, 0.6, 0]} rotation={[-Math.PI / 2, 0, 0]} color="white" fontSize={1}>TRAMPOLINE</Text>
+        <Text depthOffset={-2} position={[0, 0.6, 0]} rotation={[-Math.PI / 2, 0, 0]} color="white" fontSize={1}>TRAMPOLINE</Text>
       </RigidBody>
 
       {/* High Finish Pad */}
       <RigidBody type="fixed" position={[0, 5, -30]}>
 
         <Box args={[8, 1, 8]} material-color="#009A44" />
-        <Text position={[0, 0.6, 0]} rotation={[-Math.PI / 2, 0, 0]} color="white" fontSize={1}>GOAL</Text>
+        <Text depthOffset={-2} position={[0, 0.6, 0]} rotation={[-Math.PI / 2, 0, 0]} color="white" fontSize={1}>GOAL</Text>
       </RigidBody>
     </group>
   );

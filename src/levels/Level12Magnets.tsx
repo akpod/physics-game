@@ -38,7 +38,7 @@ export default function Level12Magnets() {
         <Sphere args={[2, 32, 32]}>
            <meshStandardMaterial color="#EF3340" />
         </Sphere>
-        <Text position={[0, 2.5, 0]} color="white" fontSize={1}>MAGNET</Text>
+        <Text depthOffset={-2} position={[0, 2.5, 0]} color="white" fontSize={1}>MAGNET</Text>
       </RigidBody>
 
       {/* Magnetic Block */}

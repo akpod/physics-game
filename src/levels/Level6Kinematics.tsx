@@ -50,7 +50,7 @@ export default function Level6Kinematics() {
       <RigidBody type="fixed" position={[0, -0.5, -30]}>
 
         <Box args={[8, 1, 8]} material-color="#FEDD00" />
-        <Text position={[0, 0.6, 0]} rotation={[-Math.PI / 2, 0, 0]} color="black" fontSize={1}>GOAL</Text>
+        <Text depthOffset={-2} position={[0, 0.6, 0]} rotation={[-Math.PI / 2, 0, 0]} color="black" fontSize={1}>GOAL</Text>
       </RigidBody>
     </group>
   );
