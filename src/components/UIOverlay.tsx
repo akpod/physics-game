@@ -14,6 +14,7 @@ interface Props {
 import { audioManager } from '../audio/AudioManager';
 import { useGameStore } from '../store/gameStore';
 import { getTranslation } from '../i18n';
+import TelemetryHUD from './TelemetryHUD';
 
 export default function UIOverlay({ currentLevel, setCurrentLevel, isPaused, setIsPaused, showHint, setShowHint }: Props) {
   const { finishLevelPhase1, language } = useGameStore();
@@ -69,6 +70,8 @@ export default function UIOverlay({ currentLevel, setCurrentLevel, isPaused, set
           )}
         </div>
       </div>
+      
+      <TelemetryHUD />
     </div>
   );
 }

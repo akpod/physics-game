@@ -5,6 +5,7 @@ import { useRef } from 'react';
 import * as THREE from 'three';
 import { useGameStore } from '../store/gameStore';
 import { useMobileControls } from '../store/mobileControlsStore';
+import { useTelemetryStore } from '../store/telemetryStore';
 
 export default function Player({ position = [0, 2, 0] }: { position?: [number, number, number] }) {
   const bodyRef = useRef<any>(null);
@@ -248,6 +249,21 @@ export default function Player({ position = [0, 2, 0] }: { position?: [number, n
 
     state.camera.position.copy(smoothedCameraPosition.current);
     state.camera.lookAt(smoothedCameraTarget.current);
+
+    // Update Telemetry
+    const vel = bodyRef.current.linvel();
+    const actualSpeed = Math.sqrt(vel.x * vel.x + vel.z * vel.z);
+    
+    const degrees = ((currentRotation.current * 180) / Math.PI) % 360;
+    const normalizedDegrees = degrees < 0 ? degrees + 360 : degrees;
+    const dirs = ["N", "NE", "E", "SE", "S", "SW", "W", "NW"];
+    const dirIndex = Math.round(normalizedDegrees / 45) % 8;
+    
+    useTelemetryStore.setState({
+       velocity: actualSpeed,
+       height: pos.y,
+       direction: dirs[dirIndex]
+    });
   });
 
   // Colors mapping for "Real Human" style skin and clothes

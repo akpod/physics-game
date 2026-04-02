@@ -4,36 +4,42 @@ import { useMemo } from 'react';
 
 // Reusable Low-Poly Tree
 const Tree = ({ position, scale = 1 }: { position: [number, number, number], scale?: number }) => (
-  <group position={position} scale={scale}>
-    {/* Trunk */}
-    <Cylinder args={[0.2, 0.4, 2]} position={[0, 1, 0]} castShadow receiveShadow>
-      <meshStandardMaterial color="#5C4033" roughness={0.9} />
-    </Cylinder>
-    {/* Leaves - layered cones for a stylized pine/acacia look */}
-    <Cone args={[1.5, 2.5, 5]} position={[0, 2.5, 0]} castShadow>
-      <meshStandardMaterial color="#2E8B57" roughness={0.8} />
-    </Cone>
-    <Cone args={[1.2, 2, 5]} position={[0, 3.5, 0]} castShadow>
-      <meshStandardMaterial color="#3CB371" roughness={0.8} />
-    </Cone>
-    <Cone args={[0.8, 1.5, 5]} position={[0, 4.5, 0]} castShadow>
-      <meshStandardMaterial color="#228B22" roughness={0.8} />
-    </Cone>
-  </group>
+  <RigidBody type="fixed" position={position} colliders="trimesh">
+    <group scale={scale}>
+      {/* Trunk */}
+      <Cylinder args={[0.2, 0.4, 2]} position={[0, 1, 0]} castShadow receiveShadow>
+        <meshStandardMaterial color="#5C4033" roughness={0.9} />
+      </Cylinder>
+      {/* Leaves - layered cones for a stylized pine/acacia look */}
+      <Cone args={[1.5, 2.5, 5]} position={[0, 2.5, 0]} castShadow>
+        <meshStandardMaterial color="#2E8B57" roughness={0.8} />
+      </Cone>
+      <Cone args={[1.2, 2, 5]} position={[0, 3.5, 0]} castShadow>
+        <meshStandardMaterial color="#3CB371" roughness={0.8} />
+      </Cone>
+      <Cone args={[0.8, 1.5, 5]} position={[0, 4.5, 0]} castShadow>
+        <meshStandardMaterial color="#228B22" roughness={0.8} />
+      </Cone>
+    </group>
+  </RigidBody>
 );
 
 // Reusable Low-Poly Rock
 const Rock = ({ position, scale = 1, rotation }: { position: [number, number, number], scale?: number, rotation: [number, number, number] }) => (
-  <Dodecahedron args={[1]} position={position} scale={scale} rotation={rotation} castShadow receiveShadow>
-    <meshStandardMaterial color="#808080" roughness={1} />
-  </Dodecahedron>
+  <RigidBody type="fixed" position={position} rotation={rotation} colliders="hull">
+    <Dodecahedron args={[1]} scale={scale} castShadow receiveShadow>
+      <meshStandardMaterial color="#808080" roughness={1} />
+    </Dodecahedron>
+  </RigidBody>
 );
 
 // Reusable Distant Hill
 const Hill = ({ position, scale }: { position: [number, number, number], scale: [number, number, number] }) => (
-  <Sphere args={[1, 16, 16]} position={position} scale={scale} receiveShadow>
-    <meshStandardMaterial color="#6B8E23" roughness={1} /> {/* Olive/Grass green */}
-  </Sphere>
+  <RigidBody type="fixed" position={position} colliders="trimesh">
+    <Sphere args={[1, 16, 16]} scale={scale} receiveShadow>
+      <meshStandardMaterial color="#6B8E23" roughness={1} /> {/* Olive/Grass green */}
+    </Sphere>
+  </RigidBody>
 );
 
 export default function PhysicsWorld() {

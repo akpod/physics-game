@@ -112,3 +112,29 @@ html, body, #root {
   display: flex;
   gap: 10px;
 }
+
+.telemetry-hud {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(5px);
+  color: #00FF00;
+  font-family: monospace;
+  padding: 10px 15px;
+  border-radius: 8px;
+  pointer-events: none;
+  border: 1px solid rgba(0, 255, 0, 0.3);
+  box-shadow: 0 0 10px rgba(0, 255, 0, 0.2);
+  z-index: 50;
+  font-size: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+@media (max-width: 600px) {
+  .telemetry-hud {
+    bottom: 180px; /* Clear mobile joysticks */
+  }
+}
