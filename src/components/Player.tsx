@@ -89,9 +89,9 @@ export default function Player({ position = [0, 2, 0] }: { position?: [number, n
     if (sensorRef.current) {
         const pos = bodyRef.current.translation();
         const sensorPos = {
-            x: pos.x + Math.sin(currentRotation.current) * 1.0,
-            y: pos.y + 0.5,
-            z: pos.z + Math.cos(currentRotation.current) * 1.0
+            x: pos.x + Math.sin(currentRotation.current) * 1.5,
+            y: pos.y - 0.5, 
+            z: pos.z + Math.cos(currentRotation.current) * 1.5
         };
         sensorRef.current.setNextKinematicTranslation(sensorPos);
         sensorRef.current.setNextKinematicRotation(new THREE.Quaternion().setFromEuler(new THREE.Euler(0, currentRotation.current, 0)));
@@ -108,12 +108,24 @@ export default function Player({ position = [0, 2, 0] }: { position?: [number, n
                     
                     if (isDynamic || isPickable) {
                         grabbedBodyRef.current = body;
+                        // Turn into kinematic body to eliminate physics drag/jitter
+                        body.setBodyType(rapier.RigidBodyType.KinematicPositionBased, true);
                         break;
                     }
                 }
             }
         } else {
             // Drop object
+            if (grabbedBodyRef.current && typeof grabbedBodyRef.current.setBodyType === 'function') {
+                grabbedBodyRef.current.setBodyType(rapier.RigidBodyType.Dynamic, true);
+                
+                // Impart player velocity to the dropped object so it throws naturally
+                const pVel = bodyRef.current.linvel();
+                // Throw slightly up and forward
+                const throwX = Math.sin(currentRotation.current) * 2;
+                const throwZ = Math.cos(currentRotation.current) * 2;
+                grabbedBodyRef.current.setLinvel({ x: pVel.x + throwX, y: Math.max(pVel.y, 0) + 2, z: pVel.z + throwZ }, true);
+            }
             grabbedBodyRef.current = null;
         }
     }
@@ -130,8 +142,11 @@ export default function Player({ position = [0, 2, 0] }: { position?: [number, n
         const currentEuler = new THREE.Euler(0, currentRotation.current, 0);
         const currentQuat = new THREE.Quaternion().setFromEuler(currentEuler);
         
-        // Force translation and freeze velocity frame-by-frame
-        if (typeof grabbedBodyRef.current.setTranslation === 'function') {
+        // Move item smoothly
+        if (typeof grabbedBodyRef.current.setNextKinematicTranslation === 'function') {
+            grabbedBodyRef.current.setNextKinematicTranslation(handPos);
+            grabbedBodyRef.current.setNextKinematicRotation(currentQuat);
+        } else if (typeof grabbedBodyRef.current.setTranslation === 'function') {
             grabbedBodyRef.current.setTranslation(handPos, true);
             grabbedBodyRef.current.setRotation(currentQuat, true);
             grabbedBodyRef.current.setLinvel({x: 0, y: 0, z: 0}, false);
@@ -277,7 +292,7 @@ export default function Player({ position = [0, 2, 0] }: { position?: [number, n
       {/* Invisible Pickup Sensor Box */}
       <RigidBody ref={sensorRef} type="kinematicPosition" colliders={false}>
           <CuboidCollider 
-              args={[1.0, 1.0, 1.0]} 
+              args={[2.5, 2.0, 2.5]} 
               sensor 
               onIntersectionEnter={({ other }) => {
                   if (other.rigidBody && !nearbyBodies.current.includes(other.rigidBody)) {
