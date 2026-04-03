@@ -97,7 +97,67 @@ export const i18n: Translations = {
     youWord: "(You)",
     quizDesc: "Answer this question to get 3 stars and unlock the next level!",
     trueAns: "True",
-    falseAns: "False"
+    falseAns: "False",
+
+    q1Title: "What physical property are you increasing when holding sprint?",
+    q1O1: "Mass",
+    q1O2: "Velocity",
+    q1O3: "Gravity",
+    q1O4: "Volume",
+
+    q2Title: "According to Newton's Second Law (F=ma), pushing the heavier box required:",
+    q2O1: "Less Force",
+    q2O2: "The Same Force",
+    q2O3: "More Force",
+    q2O4: "Zero Force",
+
+    q3Title: "Did the heavier gravity pull you down faster than the normal gravity?",
+    q3O1: "Yes, much faster",
+    q3O2: "No, mass does not affect gravity",
+    q3O3: "No, it pulled slower",
+    q3O4: "Yes, because I'm heavy",
+
+    q4Title: "What trajectory angle typically yields the maximum forward distance?",
+    q4O1: "90 degrees",
+    q4O2: "45 degrees",
+    q4O3: "10 degrees",
+    q4O4: "60 degrees",
+
+    q5Title: "Why did you slide further on the white surface?",
+    q5O1: "It had higher friction",
+    q5O2: "It was magnetic",
+    q5O3: "It had lower friction (Ice)",
+    q5O4: "It was pushed by wind",
+
+    q6Title: "Why do you move along with the moving platform without sliding off?",
+    q6O1: "Friction locks your relative velocity",
+    q6O2: "Magic",
+    q6O3: "Magnets",
+    q6O4: "You don't",
+
+    q7Title: "What physical property characterizes a bouncy trampoline collision?",
+    q7O1: "Inelastic",
+    q7O2: "Elastic",
+    q7O3: "Plastic",
+    q7O4: "Frictional",
+
+    q8Title: "According to Newton, pushing a heavy box requires a massive:",
+    q8O1: "Applied Force",
+    q8O2: "Normal Force",
+    q8O3: "Tension",
+    q8O4: "Buoyancy",
+
+    q9Title: "In a swinging pendulum, where is the kinetic energy at its maximum?",
+    q9O1: "At the highest point",
+    q9O2: "At the lowest point",
+    q9O3: "In the string",
+    q9O4: "Never",
+
+    q10Title: "What force ultimately pulls falling blocks back down to the ground?",
+    q10O1: "Friction",
+    q10O2: "Tension",
+    q10O3: "Gravity",
+    q10O4: "Normal Force"
   },
   am: {
     title: "የኢትዮጵያ ፊዚክስ",
@@ -187,7 +247,67 @@ export const i18n: Translations = {
     youWord: "(እርስዎ)",
     quizDesc: "3 ኮከቦችን ለማግኘት እና ቀጣዩን ደረጃ ለመክፈት ይህንን ጥያቄ ይመልሱ!",
     trueAns: "እውነት",
-    falseAns: "ሐሰት"
+    falseAns: "ሐሰት",
+
+    q1Title: "ስፕሪንት (እርምጃ) ሲጠቀሙ የትኛውን የፊዚክስ ባህሪ ይጨምራሉ?",
+    q1O1: "ክብደት (Mass)",
+    q1O2: "ፍጥነት (Velocity)",
+    q1O3: "ስበት (Gravity)",
+    q1O4: "ይዘት (Volume)",
+
+    q2Title: "በኒውተን ሁለተኛ ህግ (F=ma) መሰረት, ከባዱን ሳጥን ለመግፋት ምን አስፈለገ?",
+    q2O1: "አነስተኛ ኃይል",
+    q2O2: "እኩል ኃይል",
+    q2O3: "ተጨማሪ ኃይል",
+    q2O4: "ምንም ኃይል",
+
+    q3Title: "ከፍተኛው ስበት ከመደበኛው ስበት ይልቅ በፍጥነት ወደ ታች ጎትቶዎታል?",
+    q3O1: "አዎ፣ በጣም በፍጥነት",
+    q3O2: "አይ፣ ክብደት ስበትን አይነካም",
+    q3O3: "አይ፣ በዝግታ ነው የጎተተው",
+    q3O4: "አዎ፣ ስለከበድኩ",
+
+    q4Title: "ከፍተኛውን እርቀት ለመጓዝ የትኛው ማዕዘን (አንግል) ይመረጣል?",
+    q4O1: "90 ዲግሪ",
+    q4O2: "45 ዲግሪ",
+    q4O3: "10 ዲግሪ",
+    q4O4: "60 ዲግሪ",
+
+    q5Title: "በነጩ ወለል ላይ ለምን ራቅ ብለው ተንሸራተቱ?",
+    q5O1: "ከፍተኛ ግጭት (Friction) ስለነበረው",
+    q5O2: "ማግኔት ስለነበረው",
+    q5O3: "አነስተኛ ግጭት ስለነበረው (በረዶ)",
+    q5O4: "በንፋስ ስለተገፋ",
+
+    q6Title: "ከተንቀሳቃሽ መድረኩ ጋር አብረው ለምን ይንቀሳቀሳሉ?",
+    q6O1: "ግጭት (Friction) አንፃራዊ ፍጥነትዎን ስለሚቆልፈው",
+    q6O2: "አስማት",
+    q6O3: "ማግኔት",
+    q6O4: "አብሬ አልተንቀሳቀስኩም",
+
+    q7Title: "የሚያዘልለውን ትራምፖሊን ግጭት የሚገልጸው የትኛው ነው?",
+    q7O1: "ኢላስቲክ ያልሆነ (Inelastic)",
+    q7O2: "ኢላስቲክ (Elastic)",
+    q7O3: "ፕላስቲክ (Plastic)",
+    q7O4: "ፍሪክሽናል (Frictional)",
+
+    q8Title: "በኒውተን ህግ መሰረት፣ ከባድ ሳጥን ለመግፋት ምን ማዘጋጀት ያስፈልጋል?",
+    q8O1: "የተተገበረ ኃይል (Applied Force)",
+    q8O2: "መደበኛ ኃይል (Normal Force)",
+    q8O3: "ውጥረት (Tension)",
+    q8O4: "ተንሳፋፊነት (Buoyancy)",
+
+    q9Title: "በሚወዛወዝ ፔንዱለም ውስጥ, ከፍተኛው የካይኔቲክ ኢነርጂ የት ይገኛል?",
+    q9O1: "ከፍተኛው ቦታ ላይ",
+    q9O2: "ዝቅተኛው ቦታ ላይ",
+    q9O3: "በገመዱ ውስጥ",
+    q9O4: "በጭራሽ",
+
+    q10Title: "ከላይ የሚወድቁ ብሎኮችን ወደ መሬት የሚጎትተው ኃይል የትኛው ነው?",
+    q10O1: "ፍሪክሽን (Friction)",
+    q10O2: "ውጥረት (Tension)",
+    q10O3: "ስበት (Gravity)",
+    q10O4: "መደበኛ ኃይል (Normal Force)"
   },
   om: {
     title: "FIZIKSII ITOOPHIYAA",
@@ -277,7 +397,67 @@ export const i18n: Translations = {
     youWord: "(Si)",
     quizDesc: "Urjiilee 3 argachuuf fi sadarkaa itti aanu banuuf gaaffii kana deebisi!",
     trueAns: "Dhugaa",
-    falseAns: "Soba"
+    falseAns: "Soba",
+
+    q1Title: "Yeroo fiigaa jirtu amala fiziksii kam guddisa?",
+    q1O1: "Ulfaatina (Mass)",
+    q1O2: "Saffisa (Velocity)",
+    q1O3: "Harkisa (Gravity)",
+    q1O4: "Qabiyyee (Volume)",
+
+    q2Title: "Seera Niwuton Lammaffaa (F=ma) irratti hundaa'uun, saanduqa ulfaataa dhiibuun maal barbaada?",
+    q2O1: "Humna Xiqqaa",
+    q2O2: "Humna Walqixa",
+    q2O3: "Humna Dabalataa",
+    q2O4: "Humna Hin Barbaadu",
+
+    q3Title: "Harkisni guddaan harkisa idilee caalaa saffisaan gara gadiitti si harkiseeraa?",
+    q3O1: "Eeyyee, baay'ee saffisaan",
+    q3O2: "Lakki, ulfaatinni harkisa hin jijjiiru",
+    q3O3: "Lakki, suuta harkiseera",
+    q3O4: "Eeyyee, waanan ulfaadhuuf",
+
+    q4Title: "Fageenya dheeraa deemuuf kofa (angle) kamtu caalaatti filatama?",
+    q4O1: "Digrii 90",
+    q4O2: "Digrii 45",
+    q4O3: "Digrii 10",
+    q4O4: "Digrii 60",
+
+    q5Title: "Maaliif lafa adii irra fageenyatti mucucaatte?",
+    q5O1: "Rigata (Friction) guddaa waan qabuuf",
+    q5O2: "Maagneetii waan ta'eef",
+    q5O3: "Rigata xiqqaa waan qabuuf (Cabbii)",
+    q5O4: "Qilleensaan waan dhiibameef",
+
+    q6Title: "Waltajjii socho'aa wajjin maaliif waliin sochoote?",
+    q6O1: "Rigatni (Friction) saffisa kee waan hidhuuf",
+    q6O2: "Hojii Falfalaa (Magic)",
+    q6O3: "Maagneetii",
+    q6O4: "Waliin hin sochoone",
+
+    q7Title: "Walitti bu'iinsa trampoline utaaluu amalli fiziksii isaa maali?",
+    q7O1: "Elastikii kan hin taane (Inelastic)",
+    q7O2: "Elastikii (Elastic)",
+    q7O3: "Pilaastikii (Plastic)",
+    q7O4: "Frikshiniidha (Frictional)",
+
+    q8Title: "Akka seera Niwutonitti, saanduqa ulfaataa dhiibuuf maal barbaachisa?",
+    q8O1: "Humna Itti Godhame (Applied Force)",
+    q8O2: "Humna Idilee (Normal Force)",
+    q8O3: "Mukuu (Tension)",
+    q8O4: "Dandeettii bishaan irra tursiisuu (Buoyancy)",
+
+    q9Title: "Pendulum socho'u keessatti, anniisaan kineetikii (kinetic energy) inni olaanaan eessatti argama?",
+    q9O1: "Bakka baay'ee ol ka'aatti",
+    q9O2: "Bakka baay'ee gadi bu'aatti",
+    q9O3: "Funyocha keessatti",
+    q9O4: "Gonkumaa",
+
+    q10Title: "Humni xumura irratti blokoottan kufaa jiran gara lafaatti dhiibu maali?",
+    q10O1: "Rigata (Friction)",
+    q10O2: "Mukuu (Tension)",
+    q10O3: "Harkisa (Gravity)",
+    q10O4: "Humna Idilee (Normal Force)"
   },
   ti: {
     title: "ፊዚክስ ኢትዮጵያ",
@@ -367,7 +547,67 @@ export const i18n: Translations = {
     youWord: "(ንስኹም)",
     quizDesc: "3 ከዋኽብቲ ንምርካብን ቀጻሊ ደረጃ ንምኽፋትን ነዚ ሕቶ ምለስ!",
     trueAns: "ሓቂ",
-    falseAns: "ሓሶት"
+    falseAns: "ሓሶት",
+
+    q1Title: "ጉያ (Sprint) ኣብ ትጥቀመሉ ግዜ ኣየናይ ናይ ፊዚክስ ባህሪ ትውስኽ?",
+    q1O1: "ክብደት (Mass)",
+    q1O2: "ፍጥነት (Velocity)",
+    q1O3: "ስበት (Gravity)",
+    q1O4: "ዓቐን (Volume)",
+
+    q2Title: "ብመሰረት ካልኣይ ሕጊ ኒውተን (F=ma)፡ ነቲ ከቢድ ሳጹን ንምድፋእ እንታይ የድሊ?",
+    q2O1: "ውሑድ ሓይሊ",
+    q2O2: "ማዕረ ሓይሊ",
+    q2O3: "ተወሳኺ ሓይሊ",
+    q2O4: "ዋላ ሓደ ሓይሊ",
+
+    q3Title: "እቲ ዝዓበየ ስበት ካብቲ ንቡር ስበት ንላዕሊ ብፍጥነት ናብ ታሕቲ ስሒቡካ ድዩ?",
+    q3O1: "እወ፣ ብዝተቐላጠፈ",
+    q3O2: "ኣይኮነን: ክብደት ንስበት ኣይጸልዎን",
+    q3O3: "ኣይኮነን: ብዝደኾመ ስሒቡ",
+    q3O4: "እወ: ስለ ዝኸበድኩ",
+
+    q4Title: "ዝለዓለ ርሕቀት ንምኻድ ኣየናይ ኩርናዕ (Angle) ይምረጽ?",
+    q4O1: "90 ዲግሪ",
+    q4O2: "45 ዲግሪ",
+    q4O3: "10 ዲግሪ",
+    q4O4: "60 ዲግሪ",
+
+    q5Title: "ኣብቲ ጻዕዳ መሬት ስለምንታይ ርሒቕካ ተንሸራተትካ?",
+    q5O1: "ልዑል ግጭት (Friction) ስለዝነበሮ",
+    q5O2: "ማግኔት ስለዝነበሮ",
+    q5O3: "ውሑድ ግጭት ስለዝነበሮ (በረድ)",
+    q5O4: "ብንፋስ ስለዝተደፍአ",
+
+    q6Title: "ምስቲ ዝንቀሳቐስ መድረኽ ስለምንታይ ሓቢርካ ትንቀሳቐስ?",
+    q6O1: "ግጭት (Friction) ንኣንጻራዊ ፍጥነትካ ስለ ዝዓጽዎ",
+    q6O2: "ማጂክ (Magic)",
+    q6O3: "ማግኔት",
+    q6O4: "ሓቢረ ኣይንቀሳቐስን",
+
+    q7Title: "ናይ ዘላሊ ትራምፖሊን ግጭት ዝገልጽ ኣየናይ እዩ?",
+    q7O1: "ኢላስቲክ ዘይኮነ (Inelastic)",
+    q7O2: "ኢላስቲክ (Elastic)",
+    q7O3: "ፕላስቲክ (Plastic)",
+    q7O4: "ፍሪክሽናል (Frictional)",
+
+    q8Title: "ብመሰረት ሕጊ ኒውተን: ከቢድ ሳጹን ንምድፋእ እንታይ የድሊ?",
+    q8O1: "ዝተተግበረ ሓይሊ (Applied Force)",
+    q8O2: "ንቡር ሓይሊ (Normal Force)",
+    q8O3: "ስሕበት (Tension)",
+    q8O4: "ተንሳፋፍነት (Buoyancy)",
+
+    q9Title: "ኣብ ዝወዛወዝ ፔንዱለም: ዝለዓለ ካይነቲክ ኢነርጂ (Kinetic Energy) ኣበይ ይርከብ?",
+    q9O1: "ኣብቲ ዝለዓለ ነጥቢ",
+    q9O2: "ኣብቲ ዝተሓተ ነጥቢ",
+    q9O3: "ኣብቲ ገመድ",
+    q9O4: "ፈጺሙ",
+
+    q10Title: "ነቶም ዝወድቑ ብሎካት ኣብ መወዳእታ ናብ መሬት ዝስሕቦም ሓይሊ እንታይ እዩ?",
+    q10O1: "ግጭት (Friction)",
+    q10O2: "ውጥረት (Tension)",
+    q10O3: "ስበት (Gravity)",
+    q10O4: "ንቡር ሓይሊ (Normal Force)"
   }
 };
 

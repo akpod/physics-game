@@ -11,62 +11,62 @@ interface Props {
 
 const levelQuizzes: Record<number, { question: string, options: string[], answer: number, timeToBeat: number }> = {
   1: {
-    question: "What physical property are you increasing when holding sprint?",
-    options: ["Mass", "Velocity", "Gravity", "Volume"],
+    question: "q1Title",
+    options: ["q1O1", "q1O2", "q1O3", "q1O4"],
     answer: 1, // Velocity
     timeToBeat: 12
   },
   2: {
-    question: "According to Newton's Second Law (F=ma), pushing the heavier box required:",
-    options: ["Less Force", "The Same Force", "More Force", "Zero Force"],
+    question: "q2Title",
+    options: ["q2O1", "q2O2", "q2O3", "q2O4"],
     answer: 2, // More Force
     timeToBeat: 20
   },
   3: {
-    question: "Did the heavier gravity pull you down faster than the normal gravity?",
-    options: ["Yes, much faster", "No, mass does not affect gravity", "No, it pulled slower", "Yes, because I'm heavy"],
-    answer: 0, // In this game level (the platform was small, but normally g affects acceleration = 9.8 vs 1.6 on moon). Let's be accurate about the level mechanics: The High Gravity pulled them down faster.
+    question: "q3Title",
+    options: ["q3O1", "q3O2", "q3O3", "q3O4"],
+    answer: 0, // Yes, much faster
     timeToBeat: 12
   },
   4: {
-    question: "What trajectory angle typically yields the maximum forward distance?",
-    options: ["90 degrees", "45 degrees", "10 degrees", "60 degrees"],
+    question: "q4Title",
+    options: ["q4O1", "q4O2", "q4O3", "q4O4"],
     answer: 1, // 45 degrees
     timeToBeat: 15
   },
   5: {
-    question: "Why did you slide further on the white surface?",
-    options: ["It had higher friction", "It was magnetic", "It had lower friction (Ice)", "It was pushed by wind"],
+    question: "q5Title",
+    options: ["q5O1", "q5O2", "q5O3", "q5O4"],
     answer: 2, // lower friction
     timeToBeat: 15
   },
   6: {
-    question: "Why do you move along with the moving platform without sliding off?",
-    options: ["Friction locks your relative velocity", "Magic", "Magnets", "You don't"],
+    question: "q6Title",
+    options: ["q6O1", "q6O2", "q6O3", "q6O4"],
     answer: 0,
     timeToBeat: 25
   },
   7: {
-    question: "What physical property characterizes a bouncy trampoline collision?",
-    options: ["Inelastic", "Elastic", "Plastic", "Frictional"],
+    question: "q7Title",
+    options: ["q7O1", "q7O2", "q7O3", "q7O4"],
     answer: 1,
     timeToBeat: 20
   },
   8: {
-    question: "According to Newton, pushing a heavy box requires a massive:",
-    options: ["Applied Force", "Normal Force", "Tension", "Buoyancy"],
+    question: "q8Title",
+    options: ["q8O1", "q8O2", "q8O3", "q8O4"],
     answer: 0,
     timeToBeat: 30
   },
   9: {
-    question: "In a swinging pendulum, where is the kinetic energy at its maximum?",
-    options: ["At the highest point", "At the lowest point", "In the string", "Never"],
+    question: "q9Title",
+    options: ["q9O1", "q9O2", "q9O3", "q9O4"],
     answer: 1,
     timeToBeat: 30
   },
   10: {
-    question: "What force ultimately pulls falling blocks back down to the ground?",
-    options: ["Friction", "Tension", "Gravity", "Normal Force"],
+    question: "q10Title",
+    options: ["q10O1", "q10O2", "q10O3", "q10O4"],
     answer: 2,
     timeToBeat: 40
   }
@@ -110,7 +110,7 @@ export default function QuizUI({ currentLevel, setCurrentLevel }: Props) {
         </p>
 
         <h3 style={{ fontSize: '24px', color: 'var(--ethiopia-green)', marginBottom: '30px' }}>
-          {quizData.question}
+          {getTranslation(language, quizData.question)}
         </h3>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '15px' }}>
@@ -131,7 +131,7 @@ export default function QuizUI({ currentLevel, setCurrentLevel }: Props) {
                   onClick={() => selectedOption === null && handleSubmit(i)}
                   disabled={selectedOption !== null}
                 >
-                  {opt}
+                  {getTranslation(language, opt)}
                 </button>
             );
           })}
