@@ -14,7 +14,7 @@ export default function GameScoreUI({ currentLevel }: Props) {
   const handleNextLevel = () => {
     audioManager.init();
     audioManager.playUIClick();
-    if (typeof currentLevel === 'number' && currentLevel < 10) {
+    if (typeof currentLevel === 'number' && currentLevel < 7) {
       setScreen('quiz');
     } else {
       setScreen('levelSelect');
@@ -52,7 +52,7 @@ export default function GameScoreUI({ currentLevel }: Props) {
           </button>
           
           <button className="btn" style={{ background: 'var(--ethiopia-green)', padding: '15px' }} onClick={handleNextLevel}>
-            {typeof currentLevel === 'number' && currentLevel < 10 ? getTranslation(language, 'nextLevelQuiz') : getTranslation(language, 'finishBtn')}
+            {typeof currentLevel === 'number' && currentLevel < 7 ? getTranslation(language, 'nextLevelQuiz') : getTranslation(language, 'finishBtn')}
           </button>
         </div>
       </div>

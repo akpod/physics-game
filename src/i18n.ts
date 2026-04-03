@@ -43,29 +43,20 @@ export const i18n: Translations = {
     level5Desc: "Time your jumps across the moving platforms.",
     level5Hint: "Pay attention to your relative velocity when jumping off a moving object.",
 
-    level6Title: "6. Elasticity (Trampolines)",
-    level6Desc: "Use the massive trampoline to reach the high goal.",
-    level6Hint: "An elastic collision preserves kinetic energy, bouncing you high!",
 
-    level7Title: "7. Puzzles (Mass Scaling)",
-    level7Desc: "Push the 3 heavy blocks to build a staircase.",
-    level7Hint: "Remember, heavier blocks are harder to push!",
 
-    level8Title: "8. Energy (Pendulums)",
-    level8Desc: "Dodge the massive swinging pendulums.",
-    level8Hint: "A pendulum swings fastest at its lowest point.",
+    level6Title: "6. Energy (Pendulums)",
+    level6Desc: "Dodge the massive swinging pendulums.",
+    level6Hint: "A pendulum swings fastest at its lowest point.",
 
-    level9Title: "9. The Gauntlet",
-    level9Desc: "Survive the final exam.",
-    level9Hint: "Combine everything you've learned. Good luck!",
 
-    level10Title: "10. Torque & Balance (Seesaw)",
-    level10Desc: "Cross the seesaw before it tips over.",
-    level10Hint: "Keep your center of mass closer to the fulcrum to maintain balance!",
+    level7Title: "7. Torque & Balance (Seesaw)",
+    level7Desc: "Cross the seesaw before it tips over.",
+    level7Hint: "Keep your center of mass closer to the fulcrum to maintain balance!",
 
-    level11Title: "11. Magnetism (Attraction)",
-    level11Desc: "Watch the giant magnet attract the silver block. Try to pick the block up!",
-    level11Hint: "Magnetic force follows the inverse-square law; the closer it gets, the stronger it pulls!",
+    level8Title: "8. Magnetism (Attraction)",
+    level8Desc: "Watch the giant magnet attract the silver block. Try to pick the block up!",
+    level8Hint: "Magnetic force follows the inverse-square law; the closer it gets, the stronger it pulls!",
 
     // Score / Quiz / Leaderboard / Registration
     levelComplete: "Level Complete!",
@@ -191,29 +182,20 @@ export const i18n: Translations = {
     level5Desc: "በእንቅስቃሴ ላይ ባሉ መድረኮች መካከል ይዝለሉ።",
     level5Hint: "ሲዘሉ አንጻራዊ ፍጥነትዎን ያስታውሱ።",
 
-    level6Title: "6. ትራምፖሊን",
-    level6Desc: "ትልቁን ትራምፖሊን ተጠቅመው ከፍታው ላይ ይድረሱ።",
-    level6Hint: "ብልጫ ያለው መዝለል ተጠቅመው ከፍታው ላይ ይድረሱ።",
 
-    level7Title: "7. ክብደት እና ድርድር",
-    level7Desc: "3 ከባድ ሳጥኖችን በመግፋት ደረጃ ይስሩ።",
-    level7Hint: "ከባድ ሳጥኖችን ለመግፋት አስቸጋሪ ናቸው።",
 
-    level8Title: "8. ኢነርጂ (ፔንዱለም)",
-    level8Desc: "የሚወዛወዙትን ፔንዱለሞች አምልጡ።",
-    level8Hint: "ፔንዱለም ዝቅተኛው ቦታ ላይ በፍጥነት ይንቀሳቀሳል።",
+    level6Title: "6. ኢነርጂ (ፔንዱለም)",
+    level6Desc: "የሚወዛወዙትን ፔንዱለሞች አምልጡ።",
+    level6Hint: "ፔንዱለም ዝቅተኛው ቦታ ላይ በፍጥነት ይንቀሳቀሳል።",
 
-    level9Title: "9. የመጨረሻ ፈተና",
-    level9Desc: "ሁሉንም መሰናክሎች እለፉ።",
-    level9Hint: "የተማሩትን ሁሉ ይጠቀሙ። መልካም ዕድል!",
 
-    level10Title: "10. ቶርክ እና ሚዛን",
-    level10Desc: "ሚዛኑን ሳትስቱ ማዶ ይሻገሩ።",
-    level10Hint: "ሚዛን ለመጠበቅ ማዕከል ውስጥ ለመሆን ይሞክሩ።",
+    level7Title: "7. ቶርክ እና ሚዛን",
+    level7Desc: "ሚዛኑን ሳትስቱ ማዶ ይሻገሩ።",
+    level7Hint: "ሚዛን ለመጠበቅ ማዕከል ውስጥ ለመሆን ይሞክሩ።",
 
-    level11Title: "11. ማግኔት",
-    level11Desc: "ትልቁ ማግኔት የብር ሳጥኑን ሲስብ ይመልከቱ። ሳጥኑን ለማንሳት ይሞክሩ!",
-    level11Hint: "በቀረቡ ቁጥር የመሳብ አቅሙ ይጨምራል።",
+    level8Title: "8. ማግኔት",
+    level8Desc: "ትልቁ ማግኔት የብር ሳጥኑን ሲስብ ይመልከቱ። ሳጥኑን ለማንሳት ይሞክሩ!",
+    level8Hint: "በቀረቡ ቁጥር የመሳብ አቅሙ ይጨምራል።",
 
     levelComplete: "ደረጃውን ጨርሰዋል!",
     time: "ጊዜ",
@@ -338,29 +320,20 @@ export const i18n: Translations = {
     level5Desc: "Yeroo eeggachuun waltajjiiwwan socho'an irra utaali.",
     level5Hint: "Saffisa waltajjii sanaa yaadadhu.",
 
-    level6Title: "6. Trampoline (Utaallaa)",
-    level6Desc: "Trampoline fayyadamuun iddoo ol-aanaa gahi.",
-    level6Hint: "Utaallaa dabalataa argachuuf giddutti sirriitti rukkuti.",
 
-    level7Title: "7. Ulfaatina (Mass)",
-    level7Desc: "Saanduqoota gugudaa 3 dhiibuun sadarkaa ijaari.",
-    level7Hint: "Saanduqoota gugudaa dhiibuun ulfaataadha.",
 
-    level8Title: "8. Inarjii (Pendulum)",
-    level8Desc: "Pendulum socho'u irraa jalaa ba'i.",
-    level8Hint: "Pendulumni gadi bu'aa yeroo ta'u baay'ee saffisa.",
+    level6Title: "6. Inarjii (Pendulum)",
+    level6Desc: "Pendulum socho'u irraa jalaa ba'i.",
+    level6Hint: "Pendulumni gadi bu'aa yeroo ta'u baay'ee saffisa.",
 
-    level9Title: "9. Qormaata Xumuraa",
-    level9Desc: "Qormaata xumuraa darbi.",
-    level9Hint: "Waan baratte hundumaa fayyadami. Carraa gaarii!",
 
-    level10Title: "10. Madaallii (Seesaw)",
-    level10Desc: "Madaallii eeggachuun ce'i.",
-    level10Hint: "Madaallii eeguuf wiirtuu itti dhihaadhu.",
+    level7Title: "7. Madaallii (Seesaw)",
+    level7Desc: "Madaallii eeggachuun ce'i.",
+    level7Hint: "Madaallii eeguuf wiirtuu itti dhihaadhu.",
 
-    level11Title: "11. Maagneetii",
-    level11Desc: "Maagneetiin guddaan saanduqa meetii yoo harkisu daawwadhu. Saanduqicha kaasuf yaali!",
-    level11Hint: "Yeroo itti dhihaattu humni harkisaa ni dabala.",
+    level8Title: "8. Maagneetii",
+    level8Desc: "Maagneetiin guddaan saanduqa meetii yoo harkisu daawwadhu. Saanduqicha kaasuf yaali!",
+    level8Hint: "Yeroo itti dhihaattu humni harkisaa ni dabala.",
 
     levelComplete: "Sadarkaa Xumurameera!",
     time: "Yeroo",
@@ -485,29 +458,20 @@ export const i18n: Translations = {
     level5Desc: "ኣብቶም ዝንቀሳቐሱ መድረኻት ዘልል።",
     level5Hint: "ኣንጻራዊ ፍጥነትካ ዘክር።",
 
-    level6Title: "6. ትራምፖሊን",
-    level6Desc: "ትራምፖሊን ተጠቒምካ ላዕሊ ብጻሕ።",
-    level6Hint: "ልዑል ዝላይ ተጠቐም።",
 
-    level7Title: "7. ክብደት",
-    level7Desc: "3 ከበድቲ ሳጹናት ብምድፋእ መደያይቦ ስራሕ።",
-    level7Hint: "ከበድቲ ሳጹናት ንምድፋእ ኣጸገምቲ እዮም።",
 
-    level8Title: "8. ኢነርጂ (ፔንዱለም)",
-    level8Desc: "ካብቶም ዝወዛወዙ ፔንዱለማት ኣምልጥ።",
-    level8Hint: "ፔንዱለም ኣብ ታሕቲ ብፍጥነት ይንቀሳቐስ።",
+    level6Title: "6. ኢነርጂ (ፔንዱለም)",
+    level6Desc: "ካብቶም ዝወዛወዙ ፔንዱለማት ኣምልጥ።",
+    level6Hint: "ፔንዱለም ኣብ ታሕቲ ብፍጥነት ይንቀሳቐስ።",
 
-    level9Title: "9. ናይ መወዳእታ ፈተና",
-    level9Desc: "ኩሉ ዕንቅፋታት ሕለፍ።",
-    level9Hint: "ዝተምሃርካዮ ተጠቐም። ጽቡቕ ዕድል!",
 
-    level10Title: "10. ቶርክን ሚዛንን",
-    level10Desc: "ሚዛንካ ከይስሓትካ ስገር።",
-    level10Hint: "ሚዛን ንምሕላው ኣብ ማእከል ኩን።",
+    level7Title: "7. ቶርክን ሚዛንን",
+    level7Desc: "ሚዛንካ ከይስሓትካ ስገር።",
+    level7Hint: "ሚዛን ንምሕላው ኣብ ማእከል ኩን።",
 
-    level11Title: "11. ማግኔት",
-    level11Desc: "እቲ ዓቢ ማግኔት ነቲ ናይ ብሩር ሳጹን ክስሕቦ ተዓዘብ። ነቲ ሳጹን ንምልዓል ፈትን!",
-    level11Hint: "ብዝቐረብካዮ መጠን ሓይሊ ስሕበት ይውስኽ።",
+    level8Title: "8. ማግኔት",
+    level8Desc: "እቲ ዓቢ ማግኔት ነቲ ናይ ብሩር ሳጹን ክስሕቦ ተዓዘብ። ነቲ ሳጹን ንምልዓል ፈትን!",
+    level8Hint: "ብዝቐረብካዮ መጠን ሓይሊ ስሕበት ይውስኽ።",
 
     levelComplete: "ደረጃ ዛዚምካ!",
     time: "ግዜ",

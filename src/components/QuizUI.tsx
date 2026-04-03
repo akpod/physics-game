@@ -41,28 +41,10 @@ const levelQuizzes: Record<number, { question: string, options: string[], answer
     timeToBeat: 25
   },
   6: {
-    question: "q7Title",
-    options: ["q7O1", "q7O2", "q7O3", "q7O4"],
-    answer: 1,
-    timeToBeat: 20
-  },
-  7: {
-    question: "q8Title",
-    options: ["q8O1", "q8O2", "q8O3", "q8O4"],
-    answer: 0,
-    timeToBeat: 30
-  },
-  8: {
     question: "q9Title",
     options: ["q9O1", "q9O2", "q9O3", "q9O4"],
     answer: 1,
     timeToBeat: 30
-  },
-  9: {
-    question: "q10Title",
-    options: ["q10O1", "q10O2", "q10O3", "q10O4"],
-    answer: 2,
-    timeToBeat: 40
   }
 };
 
@@ -85,7 +67,7 @@ export default function QuizUI({ currentLevel, setCurrentLevel }: Props) {
         const isCorrect = index === quizData.answer;
         submitQuizAndComplete(currentLevel, quizData.timeToBeat, isCorrect);
         
-        if (isCorrect && typeof currentLevel === 'number' && currentLevel < 10) {
+        if (isCorrect && typeof currentLevel === 'number' && currentLevel < 7) {
             setCurrentLevel((currentLevel + 1) as any);
             resetTimer();
             setScreen('playing');

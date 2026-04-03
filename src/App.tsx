@@ -21,15 +21,15 @@ import Level3Gravity from './levels/Level3Gravity';
 // import Level4Projectile from './levels/Level4Projectile';
 import Level5Friction from './levels/Level5Friction';
 import Level6Kinematics from './levels/Level6Kinematics';
-import Level7Wind from './levels/Level7Wind';
-import Level8Puzzles from './levels/Level8Puzzles';
+// import Level7Wind from './levels/Level7Wind';
+// import Level8Puzzles from './levels/Level8Puzzles';
 import Level9Pendulum from './levels/Level9Pendulum';
-import Level10Gauntlet from './levels/Level10Gauntlet';
+// import Level10Gauntlet from './levels/Level10Gauntlet';
 import Level11Seesaw from './levels/Level11Seesaw';
 import Level12Magnets from './levels/Level12Magnets';
 import SandboxMode from './levels/SandboxMode';
 
-export type LevelType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10 | 11 | 'sandbox';
+export type LevelType = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 'sandbox';
 
 // A small component to hook into R3F useFrame for global timer logic
 const TimerTicker = () => {
@@ -62,12 +62,10 @@ function App() {
       // case 4: return <Level4Projectile />;
       case 4: return <Level5Friction />;
       case 5: return <Level6Kinematics />;
-      case 6: return <Level7Wind />;
-      case 7: return <Level8Puzzles />;
-      case 8: return <Level9Pendulum />;
-      case 9: return <Level10Gauntlet />;
-      case 10: return <Level11Seesaw />;
-      case 11: return <Level12Magnets />;
+      // case 6: return <Level7Wind />;
+      case 6: return <Level9Pendulum />;
+      case 7: return <Level11Seesaw />;
+      case 8: return <Level12Magnets />;
       case 'sandbox': return <SandboxMode />;
       default: return <Level1Motion />;
     }
