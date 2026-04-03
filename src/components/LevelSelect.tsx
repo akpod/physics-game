@@ -53,8 +53,8 @@ export default function LevelSelect({ setCurrentLevel }: Props) {
       <h1 style={{ fontSize: '36px', color: 'var(--ethiopia-yellow)', marginBottom: '40px' }}>{getTranslation(language, 'selectLevel')}</h1>
       
       <div style={{ display: 'flex', gap: '20px', flexWrap: 'wrap', justifyContent: 'center', maxWidth: '800px' }}>
-        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12].map(level => (
-          <LevelButton key={level} level={level} title={`${level}. ${getTranslation(language, 'levelWord')}`} />
+        {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11].map(level => (
+          <LevelButton key={level} level={level as any} title={`${level}. ${getTranslation(language, 'levelWord')}`} />
         ))}
         
         <button className="btn" style={{ background: 'var(--ethiopia-red)', padding: '20px' }} onClick={() => handleSelect('sandbox')}>

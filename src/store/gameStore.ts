@@ -45,7 +45,7 @@ const saveScores = (scores: any) => {
 
 const loadUnlocked = () => {
   if (typeof window !== 'undefined' && (window.location.search.includes('unlockAll') || window.location.pathname === '/fullaccess')) {
-     const allLevels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+     const allLevels = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
      localStorage.setItem('physics_game_unlocked', JSON.stringify(allLevels));
      return allLevels;
   }
@@ -168,7 +168,7 @@ export const useGameStore = create<GameState>((set, get) => ({
     state.saveScore(levelIndex, time, stars);
     
     // Only unlock next level if quiz was correct
-    if (quizCorrect && levelIndex < 5) state.unlockLevel(levelIndex + 1);
+    if (quizCorrect && levelIndex < 11) state.unlockLevel(levelIndex + 1);
     
     import('../audio/AudioManager').then(m => m.audioManager.playWinLevel());
     

@@ -29,42 +29,36 @@ const levelQuizzes: Record<number, { question: string, options: string[], answer
     timeToBeat: 12
   },
   4: {
-    question: "q4Title",
-    options: ["q4O1", "q4O2", "q4O3", "q4O4"],
-    answer: 1, // 45 degrees
-    timeToBeat: 15
-  },
-  5: {
     question: "q5Title",
     options: ["q5O1", "q5O2", "q5O3", "q5O4"],
     answer: 2, // lower friction
     timeToBeat: 15
   },
-  6: {
+  5: {
     question: "q6Title",
     options: ["q6O1", "q6O2", "q6O3", "q6O4"],
     answer: 0,
     timeToBeat: 25
   },
-  7: {
+  6: {
     question: "q7Title",
     options: ["q7O1", "q7O2", "q7O3", "q7O4"],
     answer: 1,
     timeToBeat: 20
   },
-  8: {
+  7: {
     question: "q8Title",
     options: ["q8O1", "q8O2", "q8O3", "q8O4"],
     answer: 0,
     timeToBeat: 30
   },
-  9: {
+  8: {
     question: "q9Title",
     options: ["q9O1", "q9O2", "q9O3", "q9O4"],
     answer: 1,
     timeToBeat: 30
   },
-  10: {
+  9: {
     question: "q10Title",
     options: ["q10O1", "q10O2", "q10O3", "q10O4"],
     answer: 2,
